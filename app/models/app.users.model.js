@@ -4,15 +4,15 @@ const Schema = mongoose.Schema;
 const schema = new Schema({
     username: { type: String, unique: true, required: true },
     password: { type: String, required: true },
-    status: { type: String, required: true },
-    lastUpatedOn:{type: Date, default: Date.now },
-    lastUpdatedBy:{type: String, required:true},
-    createdOn: { type: Date, default: Date.now },
+    fName: { type: String, required: true },
+    lName: { type: String, default: null },
+    status: { type: Number, default: 1 },
+    updatedBy:{type: String, default:null},
     createdBy: {type: String, required:true},
-    role_id:[
+    roleId:[
         {type: Schema.Types.ObjectId, ref: 'Roles'}
       ]
-});
+},{ timestamps:true});
 
 schema.set('toJSON', { virtuals: true });
 

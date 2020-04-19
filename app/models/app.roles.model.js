@@ -3,11 +3,11 @@ const Schema = mongoose.Schema;
 
 const schema = new Schema({
     type: { type: String, required: true },
-    lastUpatedOn:{type: Date, default: Date.now },
-    lastUpdatedBy:{type: String, required:true},
-    createdOn: { type: Date, default: Date.now },
+    status: {type: Number, default:1},
     createdBy: {type: String, required:true},
-});
+    updatedBy:{type: String, default:null},
+
+},{ timestamps:true});
 
 schema.set('toJSON', { virtuals: true });
 
